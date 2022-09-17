@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .songs {
+            width: 400px;
+            height: 510px;
+            margin: 0 auto;
+            border: 1px solid red;
+        }
+
+        .songbox {
+            width: 400px;
+            height: 50px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .songbox>span {
+            width: 50px;
+            text-align: center;
+        }
+
+        .songbox-left {
+            width: 300px;
+            height: 40px;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .singername {
+            color: #ccc;
+        }
+
+        .songbox-right {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .songbox-right>.icon-play2 {
+            color: #ccc;
+            font-size: 28px;
+        }
+
+        .box {
+            width: auto;
+            height: 53px;
+            background-color: #333;
+        }
+
+        .center {
+            width: 1190px;
+            height: 53px;
+            margin: 0 auto;
+        }
+
+        .box1 {
+            float: left;
+            width: 137px;
+            height: 36px;
+            padding-top: 6px;
+            color: #ccc;
+        }
+
+        .icon-previous {
+            float: left;
+            font-size: 25px;
+            margin: 5px 8px 0 0;
+
+        }
+
+        .icon-play2,
+        .icon-pause {
+            float: left;
+            font-size: 32px;
+            margin: 0 8px 0 0;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .icon-next {
+            float: left;
+            font-size: 25px;
+            margin: 5px 8px 0 0;
+        }
+
+        .box2 {
+            float: left;
+            width: 34px;
+            height: 34px;
+            margin: 6px 15px 0 0;
+            background-color: cornflowerblue;
+        }
+
+        .box2>img {
+            width: 34px;
+            height: 34px;
+        }
+
+        .box3 {
+            float: left;
+            width: 581px;
+            height: 37px;
+            color: #ccc;
+        }
+
+        .box3-top {
+            width: 581px;
+            height: 28px;
+        }
+
+        .box3-bottom {
+            width: 581px;
+            height: 9px;
+            display: flex;
+            align-items: center;
+        }
+
+        .long {
+            width: 466px;
+            height: 9px;
+            border-radius: 999px;
+            background-color: #000;
+            margin-right: 15px;
+        }
+
+        .progress {
+            width: 0%;
+            height: 9px;
+            border-radius: 999px;
+            background-color: red;
+            margin-right: 15px;
+        }
+
+        .box3-bottom>span {
+            font-size: 12px;
+        }
+
+        .song {
+            font-size: 12px;
+            color: #fff;
+        }
+
+        .singer {
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .box4 {
+            float: left;
+            width: 87px;
+            height: 36px;
+            color: #ccc;
+        }
+
+        .icon-copy,
+        .icon-folder-plus,
+        .icon-share {
+            float: left;
+            margin: 20px 12px 0 0;
+        }
+
+        .box5 {
+            float: left;
+            width: 113px;
+            height: 36px;
+            padding-left: 13px;
+            color: #ccc;
+        }
+
+        .icon-volume-medium,
+        .icon-loop,
+        .icon-file-music {
+            float: left;
+            margin: 20px 12px 0 0;
+        }
+
+        .list {
+            position: relative;
+        }
+
+        .songs-list {
+            display: none;
+            position: absolute;
+            bottom: 36px;
+            right: 0px;
+            width: 800px;
+            height: 300px;
+            background-color: rgba(0, 0, 0, 0.731);
+        }
+
+        .songs-list.show {
+            display: block;
+        }
+
+        .songs-list .item {
+            display: flex;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .songs-list .item .s-name {
+            width: 40%;
+        }
+
+        /* .lyrics {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 400px;
+            height: 300px;
+            background-color: #000;
+        }
+
+        .lyrics.show {
+            display: block;
+        } */
+
+        /* .icon-volume-medium {
+            position: relative;
+        } */
+
+        /* .volume {
+            position: absolute;
+            bottom: 35px;
+            left: -12px;
+            width: 40px;
+            height: 120px;
+            background-color: rgba(0, 0, 0, 0.731);
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="songs">
+        <!-- <div class="songbox">
+            <div class="songbox-left">
+                <div class="songname">1</div>
+                <div class="singername">2</div>
+            </div>
+            <div class="songbox-right">
+                <i class="icon-play2"></i>
+            </div>
+        </div> -->
+    </div>
+    <div class="box">
+        <div class="center">
+            <div class="box1">
+                <div class="icon-previous"></div>
+                <div class="btn-p icon-play2"></div>
+                <div class="icon-next"></div>
+            </div>
+            <div class="box2">
+                <img src="./1.png" alt="">
+            </div>
+            <div class="box3">
+                <div class="box3-top">
+                    <span class="song">受难曲</span>
+                    <span class="singer">邓紫棋</span>
+                </div>
+                <div class="box3-bottom">
+                    <div class="long">
+                        <div class="progress"></div>
+                    </div>
+                    <span class="p-time">00:00</span>/
+                    <span class="a-time">05:15</span>
+
+                </div>
+            </div>
+            <div class="box4">
+                <div class="icon-copy"></div>
+                <div class="icon-folder-plus"></div>
+                <div class="icon-share"></div>
+            </div>
+            <div class="box5">
+                <div class="icon-volume-medium">
+                    <div class="volume"></div>
+                </div>
+                <div class="icon-loop"></div>
+                <div class="list icon-file-music">
+                    <div class="songs-list"></div>
+                    <!-- <div class="lyrics"></div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <audio src="" autoplay controls></audio>
+
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+
+        $(function () {
+            $.ajax({
+                url: "https://apis.netstart.cn/music/personalized/newsong",
+                type: "GET",
+                success: function (data) {
+                    console.log(data);
+                    hhh(data)
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            })
+        })
+
+        function hhh(data) {
+            let index
+            let status = false
+            let songsdata = data.result
+            console.log(songsdata);
+
+            for (let i = 0; i < data.result.length; i++) {
+                // console.log(data.result[i]);
+
+                let songs = $('.songs')
+                $(`
+                    <div class="songbox" data-id="${data.result[i].id}">
+                        <span>${i + 1}</span>
+                        <div class="songbox-left">
+                            <div class="songname">${data.result[i].name}</div>
+                            <div class="singername">${data.result[i].song.artists[0].name}</div>
+                        </div>
+                        <div class="songbox-right">
+                            <i class="icon-play2"></i>
+                        </div>
+                    </div>
+                `).appendTo(songs)
+            }
+
+            let $songs = $('.songs')
+            let audio = $('audio')[0]
+            let atime
+            $songs.on('click', '.songbox', (e) => {
+                addSong(e.currentTarget)
+                // console.log(e.currentTarget.dataset.id);
+                let id = e.currentTarget.dataset.id
+                // console.log(audio);
+                // https://apis.netstart.cn/music/lyric?id=歌曲id
+                audio.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`
+                status = true
+                $('.btn-p').addClass('icon-pause')
+                $('.btn-p').removeClass('icon-play2')
+
+                let name = $('.songname', $(e.currentTarget)).text()
+                let singername = $('.singername', $(e.currentTarget)).text()
+                $('.song').text(name)
+                $('.singer').text(singername)
+
+                let pic
+                songsdata.forEach((e, i) => {
+                    if (e.id == id) {
+                        index = i
+                        // console.log(e.picUrl);
+                        pic = e.picUrl
+                        let $img = $('img', $('.box2'))
+                        $img.attr('src', pic)
+
+                        atime = e.song.duration
+                        let timeStr = duration(atime)
+                        $('.a-time').text(timeStr)
+                    }
+                });
+            })
+
+            let $btnP = $('.btn-p')
+            $btnP.on('click', (e) => {
+                $(e.currentTarget).toggleClass('icon-pause')
+                $(e.currentTarget).toggleClass('icon-play2')
+                if (status) {
+                    status = false
+                    audio.pause()
+                } else {
+                    status = true
+                    audio.play()
+                }
+            })
+
+            let $iconPrevious = $('.icon-previous')
+            $iconPrevious.on('click', (e) => {
+                // console.log(e);
+                index = (index - 1) < 0 ? 9 : index - 1
+                bbb(index, songsdata)
+                audio.src = `https://music.163.com/song/media/outer/url?id=${songsdata[index].id}.mp3`
+            })
+
+            let $iconNext = $('.icon-next')
+            $iconNext.on('click', (e) => {
+                index = (index + 1) % 10
+                bbb(index, songsdata)
+                audio.src = `https://music.163.com/song/media/outer/url?id=${songsdata[index].id}.mp3`
+            })
+
+            audio.ontimeupdate = function () {
+                let pTime = duration(audio.currentTime * 1000)
+                $('.p-time').text(pTime)
+                progress(audio.currentTime * 1000, atime)
+            }
+
+            $('.long').on('click', (e) => {
+                audio.currentTime = (e.offsetX / 466) * atime / 1000
+            })
+
+            $('.list').on('click', (e) => {
+                $(e.currentTarget.firstElementChild).toggleClass('show')
+            })
+
+            audio.onended = function () {
+                index = (index + 1) % 10
+                bbb(index, songsdata)
+                audio.src = `https://music.163.com/song/media/outer/url?id=${songsdata[index].id}.mp3`
+            }
+        }
+
+        function bbb(index, songsdata) {
+            let name = $('.songname', $('.songbox').eq(index)).text()
+            let singername = $('.singername', $('.songbox').eq(index)).text()
+            $('.song').text(name)
+            $('.singer').text(singername)
+
+            songsdata.forEach((e, i) => {
+                if (i == index) {
+                    $('img', $('.box2')).attr('src', e.picUrl)
+                }
+            });
+        }
+
+        function duration(time) {
+            let min = parseInt(time / 1000 / 60)
+            let sec = parseInt(time / 1000 % 60)
+            return min + ':' + sec
+        }
+
+        function progress(ptime, atime) {
+            $('.progress')[0].style.width = ptime / atime * 100 + '%'
+        }
+
+        function addSong(el) {
+            let flag = true
+            let item = $('.item')[0]
+            if (item) {
+                let arr = document.querySelectorAll('.item')
+                arr.forEach(e => {
+                    if (e.dataset.id == el.dataset.id) {
+                        flag = false
+                    }
+                })
+            }
+            if (flag) {
+                let name = $('.songname', $(el)).text()
+                let singer = $('.singername', $(el)).text()
+                $(`
+                    <div class="item" data-id="${el.dataset.id}">
+                        <div class="s-name">${name}</div>
+                        <div class="s-er-name">${singer}</div>
+                    </div>
+                `).appendTo($('.songs-list'))
+            }
+        }
+
+    </script>
+</body>
+
+</html>
